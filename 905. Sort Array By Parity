@@ -1,0 +1,25 @@
+class Solution {
+public:
+    vector<int> sortArrayByParity(vector<int>& A) {
+        int B[5000];
+        int bc =0;
+        int Ans[5000];
+        int ac =0;
+        for(int i = 0; i < A.size();i++){
+            if(A[i] %2 != 0){
+                B[bc] = A[i];
+                bc++;
+            }else{
+                Ans[ac] = A[i];
+                ac++;
+            }
+        }
+        for(int i = 0;i < ac;i++){
+            A[i] = Ans[i];
+        }
+        for(int i = 0; i < bc ; i++){
+            A[i+ac] = B[i];
+        }
+        return A;
+    }
+};
